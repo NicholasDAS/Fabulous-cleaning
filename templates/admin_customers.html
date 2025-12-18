@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2 class="fw-bold text-danger mb-4">Customers</h2>
+
+<div class="table-responsive shadow-sm">
+    <table class="table table-striped align-middle">
+        <thead class="table-dark">
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Address</th>
+            </tr>
+        </thead>
+
+        <tbody>
+        {% for c in customers %}
+            <tr>
+                <td>{{ c.full_name }}</td>
+                <td>{{ c.email }}</td>
+                <td>{{ c.phone or "N/A" }}</td>
+                <td>{{ c.address or "N/A" }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+
+    </table>
+</div>
+
+{% endblock %}

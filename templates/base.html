@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fabulous Cleaning Service</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Custom Styles -->
+    <style>
+        body.light-mode {
+            background: #f5f5f5;
+            color: #222;
+        }
+
+        body.dark-mode {
+            background: #121212;
+            color: #eaeaea;
+        }
+
+        .navbar-brand {
+            font-size: 1.4rem;
+        }
+
+        .navbar {
+            transition: 0.3s ease-in-out;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        body.dark-mode .navbar {
+            background: #1c1c1c !important;
+            border-bottom: 1px solid #333;
+        }
+
+        .card {
+            transition: 0.3s;
+        }
+
+        body.dark-mode .card {
+            background: #1e1e1e;
+            color: #fff;
+        }
+
+        footer {
+            background: #ffffff;
+            padding: 30px 0;
+            border-top: 1px solid #ddd;
+        }
+
+        body.dark-mode footer {
+            background: #1c1c1c;
+            border-top: 1px solid #333;
+            color: #ccc;
+        }
+
+        .theme-toggle {
+            cursor: pointer;
+            font-size: 23px;
+        }
+    </style>
+</head>
+
+<body class="light-mode">
+
+    <!-- navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+        <div class="container">
+
+            <a class="navbar-brand fw-bold" href="/">
+                ✨ Fabulous Cleaning
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navMenu">
+
+                <!-- Left menu -->
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/about">About Us</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/services">Services</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/booking">Book Now</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/contact">Contact</a>
+                    </li>
+
+                </ul>
+
+                <!-- Right menu -->
+                <ul class="navbar-nav">
+
+                    {% if session.get('user_id') %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="/dashboard">
+                            <i class="bi bi-speedometer2"></i> Dashboard
+                        </a> 
+                    </li>
+
+                    {% if session.get('is_admin') %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="/admin">
+                            <i class="bi bi-person-gear"></i> Admin
+                        </a>
+                    </li>
+                    {% endif %}
+
+                    <li class="nav-item">
+                        <a class="nav-link text-danger fw-bold" href="/logout">
+                            <i class="bi bi-box-arrow-right"></i> Logout
+                        </a>
+                    </li>
+
+                    {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login">
+                            <i class="bi bi-box-arrow-in-right"></i> Login
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/signup">
+                            <i class="bi bi-person-plus"></i> Sign Up
+                        </a>
+                    </li>
+                    {% endif %}
+
+                    <!-- Theme Toggle -->
+                    <li class="nav-item ms-3">
+                        <span class="theme-toggle" id="themeToggle">
+                            <i class="bi bi-moon-fill"></i>
+                        </span>
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+    </nav>
+
+    <!-- 
+          flash messages should be visible on all pages
+          -->
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <div class="container mt-3">
+          {% for message in messages %}
+            <div class="alert alert-info alert-dismissible fade show" role="alert">
+              {{ message }}
+              <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            </div>
+          {% endfor %}
+        </div>
+      {% endif %}
+    {% endwith %}
+
+    <!-- 
+        main content  
+        -->
+    <div class="container-fluid mt-4 mb-5">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+
+   
+    <!-- footer -->
+    <footer class="text-center">
+        <div class="container">
+
+            <p class="fw-bold mb-1">Fabulous Cleaning Service</p>
+            <p class="text-muted mb-2">
+                Making homes and offices shine — reliably and professionally.
+            </p>
+
+            <p class="text-muted mb-0">
+                © {{ 2025 }} Fabulous Cleaning — All Rights Reserved.
+            </p>
+
+        </div>
+    </footer>
+
+
+
+    <!-- Bootstrap JS link -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!--  toggle script
+         -->
+    <script>
+        const body = document.body;
+        const toggle = document.getElementById("themeToggle");
+        const icon = toggle.querySelector("i");
+
+        const savedTheme = localStorage.getItem("theme");
+
+        if (savedTheme) {
+            body.className = savedTheme;
+            icon.className = savedTheme === "dark-mode"
+                ? "bi bi-sun-fill"
+                : "bi bi-moon-fill";
+        }
+
+        toggle.addEventListener("click", () => {
+            if (body.classList.contains("light-mode")) {
+                body.classList.replace("light-mode", "dark-mode");
+                icon.className = "bi bi-sun-fill";
+                localStorage.setItem("theme", "dark-mode");
+            } else {
+                body.classList.replace("dark-mode", "light-mode");
+                icon.className = "bi bi-moon-fill";
+                localStorage.setItem("theme", "light-mode");
+            }
+        });
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% block content %}
+
+<!-- 
+    signup page with full name, email,
+     and password fields, signup button, and link to login page.
+     -->
+
+<div class="d-flex justify-content-center align-items-center" style="min-height: 80vh;">
+
+    <div class="card shadow p-4" style="width: 450px; border-radius: 15px;">
+
+        <h3 class="text-center fw-bold mb-3">Create an Account ✨</h3>
+        <p class="text-center text-muted mb-4">Join Fabulous Cleaning Service</p>
+
+        <form method="POST">
+
+            <!-- full name -->
+            <div class="mb-3">
+                <label class="form-label fw-bold">Full Name</label>
+                <div class="input-group">
+                    <span class="input-group-text bg-primary text-white">
+                        <i class="bi bi-person-fill"></i>
+                    </span>
+                    <input type="text" name="fullname" class="form-control" required>
+                </div>
+            </div>
+
+            <!-- email -->
+            <div class="mb-3">
+                <label class="form-label fw-bold">Email</label>
+                <div class="input-group">
+                    <span class="input-group-text bg-primary text-white">
+                        <i class="bi bi-envelope-fill"></i>
+                    </span>
+                    <input type="email" name="email" class="form-control" required>
+                </div>
+            </div>
+
+            <!-- password -->
+            <div class="mb-3">
+                <label class="form-label fw-bold">Password</label>
+                <div class="input-group">
+                    <span class="input-group-text bg-primary text-white">
+                        <i class="bi bi-lock-fill"></i>
+                    </span>
+                    <input type="password" name="password" class="form-control" required>
+                </div>
+            </div>
+
+            <!-- signup button -->
+            <button type="submit" class="btn btn-primary w-100 fw-bold mt-2"
+                style="border-radius: 8px;">
+                Create Account
+            </button>
+
+        </form>
+
+        <p class="text-center mt-3">
+            Already have an account?
+            <a href="/login" class="fw-bold">Login</a>
+        </p>
+
+    </div>
+</div>
+
+{% endblock %}

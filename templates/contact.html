@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+{% block title %}Contact Us{% endblock %}
+
+{% block content %}
+
+
+<!-- header -->
+<div class="text-center mb-5">
+    <h1 class="fw-bold">Contact Us</h1>
+    <p class="text-muted"><strong>We’d love to hear from you. Send us a  message today.</strong> </p>
+</div>
+
+<div class="row">
+
+    
+    <!-- contact form section -->
+    <div class="col-md-6 mb-4">
+        <div class="card shadow-sm p-4">
+
+            <h4 class="fw-bold mb-3">Send a Message</h4>
+
+            <form method="POST">
+
+                <!-- Name -->
+                <div class="mb-3">
+                    <label class="form-label">Full Name</label>
+                    <input type="text" name="fullname" class="form-control" required>
+                </div>
+
+                <!-- Email -->
+                <div class="mb-3">
+                    <label class="form-label">Email Address</label>
+                    <input type="email" name="email" class="form-control" required>
+                </div>
+
+                <!-- Phone -->
+                <div class="mb-3">
+                    <label class="form-label">Phone Number</label>
+                    <input type="text" name="phone" class="form-control">
+                </div>
+
+                <!-- Message -->
+                <div class="mb-3">
+                    <label class="form-label">Message</label>
+                    <textarea name="message" class="form-control" rows="5" required></textarea>
+                </div>
+
+                <button class="btn btn-primary w-100">Send Message</button>
+
+            </form>
+
+        </div>
+    </div>
+
+
+  
+    <!-- information section, address, phone, email -->
+   
+    <div class="col-md-6 mb-4 d-flex align-items-center">
+        <div>
+
+            <h4 class="fw-bold mb-3">Our Contact Info</h4>
+
+            <p class="mb-2"><strong>📍 Address:</strong> 123 Cleaning Street, Toronto, ON</p>
+            <p class="mb-2"><strong>📞 Phone:</strong> +1 (416) 555-8899</p>
+            <p class="mb-3"><strong>📧 Email:</strong> edakinicholas9@gmail.com.com</p>
+
+            <h5 class="fw-bold mt-4">Business Hours</h5>
+            <p class="mb-1">Mon – Fri: 8:00 AM – 6:00 PM</p>
+            <p class="mb-1">Saturday: 9:00 AM – 4:00 PM</p>
+            <p class="mb-4">Sunday: Closed</p>
+
+            <!-- optional map  -->
+            <div class="rounded shadow-sm" style="background:#ddd; width:100%; height:200px; display:flex; align-items:center; justify-content:center;">
+                <span class="text-muted">Google Map Placeholder</span>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

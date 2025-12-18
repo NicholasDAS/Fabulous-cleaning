@@ -1,0 +1,153 @@
+{% extends "base.html" %}
+{% block content %}
+
+<!-- our hero session -->
+<div class="container mt-5 mb-5">
+    <div class="row align-items-center">
+
+        <!-- Left Text -->
+        <div class="col-md-6">
+            <h1 class="fw-bold mb-3" style="font-size: 45px;">
+                A Cleaner Home, A Happier You ✨
+            </h1>
+            <p class="lead text-muted mb-4">
+                Professional, reliable, and affordable cleaning services tailored 
+                to your lifestyle. Book with confidence and enjoy a spotless home.
+            </p>
+
+            <div class="d-flex gap-3">
+                <a href="/booking" class="btn btn-primary btn-lg fw-bold">
+                    Book Now <i class="bi bi-arrow-right-circle ms-1"></i>
+                </a>
+                <a href="/services" class="btn btn-outline-primary btn-lg fw-bold">
+                    Our Services
+                </a>
+            </div>
+        </div>
+
+        <!-- Right Image -->
+        <div class="col-md-6 text-center mt-4 mt-md-0">
+            <img src="https://img.freepik.com/free-photo/cleaning-service-woman-showing-bucket-with-products_23-2149177330.jpg"
+                 class="img-fluid rounded shadow"
+                 style="border-radius: 20px;"
+            >
+        </div>
+
+    </div>
+</div>
+
+
+
+<!-- service overview -->
+<div class="container mb-5">
+
+    <h2 class="fw-bold text-center mb-4">Our Top Cleaning Services</h2>
+
+    <a href="/booking" style="text-decoration: none; color: inherit;"> 
+        <div class="row g-4">
+
+            <!-- service card-->
+            {% for s in [
+                ('bi-house-heart-fill', 'Basic Home Cleaning'),
+                ('bi-stars', 'Deep Cleaning'),
+                ('bi-truck', 'Move-In / Move-Out'),
+                ('bi-building', 'Office / Commercial Cleaning'),
+                ('bi-hammer', 'Post-Construction Cleaning'),
+                ('bi-door-open-fill', 'Airbnb / Rental Cleaning'),
+                ('bi-windows', 'Window Cleaning'),
+                ('bi-droplet-half', 'Carpet Cleaning')
+            ] %}
+            <div class="col-md-3">
+                <div class="card shadow-sm text-center p-3" style="border-radius: 15px;">
+                    <div class="text-primary mb-2" style="font-size: 30px;">
+                        <i class="bi {{ s[0] }}"></i>
+                    </div>
+                    <h6 class="fw-bold">{{ s[1] }}</h6>
+                </div>
+            </div>
+            {% endfor %}
+    
+        </div>
+    </a>
+</div>
+
+
+
+<!-- why you choose us -->
+<div class="container mb-5">
+
+    <h2 class="fw-bold text-center mb-4">Why Choose Fabulous Cleaning?</h2>
+
+    <div class="row text-center g-4">
+
+        <div class="col-md-4">
+            <div class="card shadow-sm p-4" style="border-radius: 15px;">
+                <i class="bi bi-shield-check text-primary mb-3" style="font-size: 35px;"></i>
+                <h5 class="fw-bold">Trusted Professionals</h5>
+                <p class="text-muted">Our trained cleaners deliver safe, reliable, and top-quality service every time.</p>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card shadow-sm p-4" style="border-radius: 15px;">
+                <i class="bi bi-clock-history text-primary mb-3" style="font-size: 35px;"></i>
+                <h5 class="fw-bold">Flexible Scheduling</h5>
+                <p class="text-muted">Book at your convenience with no hidden fees or obligations.</p>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card shadow-sm p-4" style="border-radius: 15px;">
+                <i class="bi bi-award-fill text-primary mb-3" style="font-size: 35px;"></i>
+                <h5 class="fw-bold">Satisfaction Guaranteed</h5>
+                <p class="text-muted">We make sure every clean leaves your home sparkling — guaranteed.</p>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- testimonies -->
+<div class="container mb-5">
+
+    <h2 class="fw-bold text-center mb-4">What Our Customers Say ❤️</h2>
+
+    <div class="row g-4">
+
+        <div class="col-md-4">
+            <div class="card shadow-sm p-4" style="border-radius: 15px;">
+                <p>"Absolutely amazing cleaning service! My home has never looked better."</p>
+                <h6 class="fw-bold mt-3">— Sarah T.</h6>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card shadow-sm p-4" style="border-radius: 15px;">
+                <p>"Fast, reliable, friendly team. I book them every month!"</p>
+                <h6 class="fw-bold mt-3">— Michael K.</h6>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card shadow-sm p-4" style="border-radius: 15px;">
+                <p>"I love the professionalism. Booking was easy and the price is perfect."</p>
+                <h6 class="fw-bold mt-3">— Diana P.</h6>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- footer -->
+<footer class="text-center py-4 mt-5" style="opacity: 0.9;">
+    <p class="mb-1">&copy; {{ current_year }} Fabulous Cleaning Service</p>
+    <p class="text-muted">A cleaner home, a happier life ✨</p>
+</footer>
+
+{% endblock %}

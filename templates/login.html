@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block content %}
+
+<!-- 
+     login page. centered premium card with email and password fields,
+     login button, and link to signup page.
+      -->
+
+<div class="d-flex justify-content-center align-items-center" style="min-height: 80vh;">
+
+    <div class="card shadow p-4" style="width: 400px; border-radius: 15px;">
+
+        <h3 class="text-center fw-bold mb-3">Welcome Back 👋</h3>
+        <p class="text-center text-muted mb-4">Log in to continue</p>
+
+        <form method="POST">
+
+            <!-- emailL -->
+            <div class="mb-3">
+                <label class="form-label fw-bold">Email</label>
+                <div class="input-group">
+                    <span class="input-group-text bg-primary text-white">
+                        <i class="bi bi-envelope-fill"></i>
+                    </span>
+                    <input type="email" name="email" class="form-control" required>
+                </div>
+            </div>
+
+            <!-- password -->
+            <div class="mb-3">
+                <label class="form-label fw-bold">Password</label>
+                <div class="input-group">
+                    <span class="input-group-text bg-primary text-white">
+                        <i class="bi bi-lock-fill"></i>
+                    </span>
+                    <input type="password" name="password" class="form-control" required>
+                </div>
+            </div>
+
+            <!-- login button -->
+            <button type="submit" class="btn btn-primary w-100 fw-bold mt-2"
+                style="border-radius: 8px;">
+                Login
+            </button>
+
+        </form>
+
+        <p class="text-center mt-3">
+            Don't have an account?
+            <a href="/signup" class="fw-bold">Sign Up</a>
+        </p>
+
+    </div>
+</div>
+
+{% endblock %}

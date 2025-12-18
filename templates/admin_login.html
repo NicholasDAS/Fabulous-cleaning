@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2 class="text-center fw-bold mb-4 text-danger">Admin Login</h2>
+
+<form method="POST" class="card p-4 shadow-sm mx-auto" style="max-width: 450px;">
+    <label class="fw-bold">Admin Email</label>
+    <input type="email" name="email" class="form-control mb-3" required>
+
+    <label class="fw-bold">Password</label>
+    <input type="password" name="password" class="form-control mb-3" required>
+
+    <button type="submit" class="btn btn-danger w-100">Login as Admin</button>
+</form>
+
+{% endblock %}

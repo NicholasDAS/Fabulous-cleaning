@@ -1,0 +1,146 @@
+{% extends "base.html" %}
+{% block content %}
+
+<!-- page header -->
+<div class="container text-center mt-5">
+    <h1 class="fw-bold">Our Cleaning Services</h1>
+    <p class="text-muted lead">
+        Premium, reliable, and affordable cleaning solutions for every home and business.
+    </p>
+</div>
+
+<hr class="mt-4 mb-5">
+
+
+<!-- service cards section -->
+<div class="container mb-5">
+    <div class="row g-4">
+
+        {% set services = [
+            ('bi-house-heart-fill', 'Basic Home Cleaning',
+             'Perfect for routine upkeep. Includes dusting, sweeping, mopping, kitchen cleaning, bathroom sanitation, and surface wipe-down.'),
+
+            ('bi-stars', 'Deep Cleaning',
+             'A complete top-to-bottom clean including inside appliances, detailed scrubbing, grout cleaning, high-touch surfaces, and sanitization.'),
+
+            ('bi-truck', 'Move-In / Move-Out Cleaning',
+             'Detailed cleaning for empty homes — cabinets, appliances, floors, windows, bathrooms, and all surfaces spotless for new occupants.'),
+
+            ('bi-building', 'Office / Commercial Cleaning',
+             'Reliable cleaning for offices, clinics, retail stores, restaurants, and commercial buildings. Flexible schedules available.'),
+
+            ('bi-hammer', 'Post-Construction Cleaning',
+             'We remove dust, debris, paint marks, residue, and construction dirt to make newly renovated spaces beautiful and livable.'),
+
+            ('bi-door-open-fill', 'Airbnb / Rental Cleaning',
+             'Professional turnover cleaning with laundry, staging, supplies check, and quick turnaround for short-term rentals.'),
+
+            ('bi-windows', 'Window Cleaning',
+             'Streak-free interior / exterior window cleaning for residential and commercial buildings.'),
+
+            ('bi-droplet-half', 'Carpet & Upholstery Cleaning',
+             'Deep carpet steam cleaning, stain removal, deodorizing, and furniture upholstery refresh.')
+        ] %}
+
+        {% for icon, title, desc in services %}
+        <div class="col-md-4">
+            <div class="card shadow-sm p-4 h-100" style="border-radius: 18px;">
+
+                <div class="text-primary mb-3 text-center" style="font-size: 40px;">
+                    <i class="bi {{ icon }}"></i>
+                </div>
+
+                <h4 class="fw-bold text-center">{{ title }}</h4>
+
+                <p class="mt-3 text-muted" style="font-size: 15px;">
+                    {{ desc }}
+                </p>
+
+                <div class="text-center mt-auto">
+                    <a href="/booking" class="btn btn-primary px-4 mt-3 fw-bold">
+                        Book Now
+                    </a>
+                </div>
+
+            </div>
+        </div>
+        {% endfor %}
+
+    </div>
+</div>
+
+
+
+
+<!-- pricing section -->
+<div class="container my-5">
+    <h2 class="fw-bold text-center mb-4">Estimated Pricing</h2>
+    <p class="text-center text-muted mb-4">Prices may vary based on home size, number of rooms, and special requests.</p>
+
+    <div class="row g-4">
+
+        <!-- Pricing Card -->
+        <div class="col-md-4">
+            <div class="card shadow-sm text-center p-4" style="border-radius: 18px;">
+                <h4 class="fw-bold">Basic Cleaning</h4>
+                <h2 class="text-primary fw-bold mt-2">$79+</h2>
+                <p class="text-muted">1–2 bedroom apartment</p>
+                <ul class="list-unstyled text-muted">
+                    <li>✓ Kitchen & Bathroom Cleaning</li>
+                    <li>✓ Floors & Dusting</li>
+                    <li>✓ Surface Disinfection</li>
+                </ul>
+                <a href="/booking" class="btn btn-primary fw-bold mt-2">Book Now</a>
+            </div>
+        </div>
+
+        <!-- Pricing Card -->
+        <div class="col-md-4">
+            <div class="card shadow-sm text-center p-4" style="border-radius: 18px;">
+                <h4 class="fw-bold">Deep Cleaning</h4>
+                <h2 class="text-primary fw-bold mt-2">$150+</h2>
+                <p class="text-muted">Full home sanitation</p>
+                <ul class="list-unstyled text-muted">
+                    <li>✓ Inside Appliances</li>
+                    <li>✓ Detailed Scrubbing</li>
+                    <li>✓ Baseboards & Grout</li>
+                </ul>
+                <a href="/booking" class="btn btn-primary fw-bold mt-2">Book Now</a>
+            </div>
+        </div>
+
+        <!-- Pricing Card -->
+        <div class="col-md-4">
+            <div class="card shadow-sm text-center p-4" style="border-radius: 18px;">
+                <h4 class="fw-bold">Move-In / Move-Out</h4>
+                <h2 class="text-primary fw-bold mt-2">$199+</h2>
+                <p class="text-muted">Empty home deep clean</p>
+                <ul class="list-unstyled text-muted">
+                    <li>✓ Cabinets & Drawers</li>
+                    <li>✓ Detailed Appliance Cleaning</li>
+                    <li>✓ Window Sills & Walls</li>
+                </ul>
+                <a href="/booking" class="btn btn-primary fw-bold mt-2">Book Now</a>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+<!-- 
+     call to action section
+    -->
+<div class="container text-center my-5">
+    <div class="p-5 bg-light shadow-sm rounded" style="border-radius: 20px;">
+        <h2 class="fw-bold">Ready for a Cleaner Home?</h2>
+        <p class="text-muted">Book your professional cleaning service today.</p>
+        <a href="/booking" class="btn btn-primary btn-lg fw-bold">
+            Book a Cleaning
+        </a>
+    </div>
+</div>
+
+
+{% endblock %}
