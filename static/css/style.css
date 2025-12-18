@@ -1,0 +1,122 @@
+/* global styles */
+
+body {
+    background-color: #f8f9fa;
+    font-family: 'Poppins', sans-serif;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+a {
+    text-decoration: none;
+}
+
+.card {
+    border-radius: 10px;
+}
+
+.btn {
+    border-radius: 8px !important;
+    font-weight: 600;
+}
+
+
+/* 
+  this navbar styles
+    */
+
+.navbar-brand img {
+    border-radius: 50%;
+}
+
+.navbar-nav .nav-link {
+    font-weight: 600;
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+}
+
+.nav-link:hover {
+    color: #0d6efd !important;
+}
+
+
+/* forms */
+
+.form-control,
+.form-select {
+    border-radius: 8px;
+}
+
+.form-label {
+    font-weight: 600;
+}
+
+input[type="file"] {
+    padding: 6px;
+}
+
+
+/* tables */
+
+.table {
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+
+/* footer */
+
+footer {
+    padding: 20px 0;
+    background: white;
+    border-top: 1px solid #ddd;
+    margin-top: 50px;
+}
+
+
+/* this is dark mode */
+
+body.dark-mode {
+    background-color: #121212;
+    color: #f1f1f1;
+}
+
+.dark-mode .card {
+    background-color: #1e1e1e;
+    color: white;
+}
+
+.dark-mode .navbar,
+.dark-mode footer {
+    background-color: #1a1a1a !important;
+    border-color: #333;
+}
+
+.dark-mode .table {
+    color: white;
+}
+
+.dark-mode .table thead {
+    background-color: #333;
+    color: white;
+}
+
+.dark-mode input,
+.dark-mode select,
+.dark-mode textarea {
+    background-color: #222;
+    color: white;
+    border: 1px solid #555;
+}
+
+.dark-mode .btn-primary {
+    background-color: #0d6efd;
+}
+
+
+/* design */
+
+@media (max-width: 768px) {
+    .navbar-nav {
+        text-align: center;
+    }
+}
